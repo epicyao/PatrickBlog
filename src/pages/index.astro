@@ -12,48 +12,112 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to
-				build a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your{' '}
-				<code>astro.config.mjs</code> file. You can customize your setup with{' '}
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like
-				Tailwind, React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>
-					Edit this page in <code>src/pages/index.astro</code>
-				</li>
-				<li>
-					Edit the site header items in <code>src/components/Header.astro</code>
-				</li>
-				<li>
-					Add your name to the footer in <code>src/components/Footer.astro</code>
-				</li>
-				<li>
-					Check out the included blog posts in <code>src/content/blog/</code>
-				</li>
-				<li>
-					Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code>
-				</li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to{' '}
-				<a href="https://docs.astro.build/">read the docs</a> or{' '}
-				<a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out{' '}
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a> by{' '}
-				<a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		<main class="home">
+			<section class="intro" aria-labelledby="intro-title">
+				<p class="eyebrow">欢迎来到 Patrick的笔记！</p>
+				<h1 id="intro-title">用来展示想法与生活的地方。</h1>
+				<p class="lead">
+					这是来自学生 Patrick 的博客站点，我会在这里分享学习的经验，记录开发日志等，欢迎到处看看
+				</p>
+				<div class="actions">
+					<a class="button primary" href="/blog">开始阅读</a>
+					<a class="button secondary" href="mailto:epicyao@yeah.net">保持联系</a>
+				</div>
+			</section>
+			<section class="placeholder" aria-labelledby="placeholder-title">
+				<div>
+					<p class="eyebrow">即将推出</p>
+					<h2 id="placeholder-title">FlowGenerate</h2>
+					<p>通过易于操作的工作流，批量AI生成并处理图片等多媒体文件。</p>
+				</div>
+				<span class="placeholder-mark" aria-hidden="true">+</span>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.home {
+		width: 960px;
+		max-width: calc(100% - 2em);
+		padding: clamp(4rem, 12vw, 9rem) 1em 6rem;
+	}
+	.intro {
+		max-width: 700px;
+	}
+	.eyebrow {
+		margin: 0 0 1rem;
+		color: rgb(var(--gray));
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+	h1 {
+		max-width: 680px;
+		font-size: clamp(2.8rem, 7vw, 5.5rem);
+		letter-spacing: -0.03em;
+	}
+	.lead {
+		max-width: 600px;
+		margin: 1.5rem 0 0;
+		color: rgb(var(--gray-dark));
+		font-size: 1.2em;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+	.button {
+		display: inline-block;
+		padding: 0.65rem 1.1rem;
+		border: 1px solid var(--accent);
+		border-radius: 4px;
+		font-size: 0.9em;
+		text-decoration: none;
+	}
+	.button.primary {
+		background: var(--accent);
+		color: white;
+	}
+	.button.secondary {
+		color: var(--accent);
+	}
+	.placeholder {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		margin-top: clamp(5rem, 14vw, 10rem);
+		padding: 2rem 0;
+		border-top: 1px solid rgb(var(--gray-light));
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.placeholder h2 {
+		margin-bottom: 0.35rem;
+		font-size: 1.6rem;
+	}
+	.placeholder p:last-child {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+	.placeholder-mark {
+		color: var(--accent);
+		font-size: 3rem;
+		font-weight: 300;
+		line-height: 1;
+	}
+	@media (max-width: 520px) {
+		.home {
+			max-width: calc(100% - 1.5em);
+			padding-right: 0.75em;
+			padding-left: 0.75em;
+		}
+		.placeholder {
+			align-items: flex-start;
+		}
+	}
+</style>
